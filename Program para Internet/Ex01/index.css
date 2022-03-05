@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+    font-family: monospace;
+    font-size: 120%;
+}
+h1 {
+    color: black;
+    background-color: green;
+    text-align: center;
+}
+h2 {
+    color: black;
+    background-color: green;
+    text-align: center;
+}
+h4 {
+    text-align: center;
+}
+img {
+    position: center;
+}
+a {
+    color: greenyellow;
+}
+p {
+    color: green;
+    text-align: justify;
+}
