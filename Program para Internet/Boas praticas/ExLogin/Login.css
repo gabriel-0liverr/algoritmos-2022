@@ -1,0 +1,24 @@
+body{
+    background-color: #913;
+    font-family: Arial;
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+}
+
+.login{
+    background-color: #000;
+    border-radius: 10%;
+    padding: 20px;
+    position: absolute;
+    left: 42%;
+    top: 25%;
+}
+
+button{
+    border-radius: 10%;
+    padding: 5% 25%;
+    background-color: #b91;
+}
