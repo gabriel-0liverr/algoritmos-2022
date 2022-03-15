@@ -1,0 +1,23 @@
+body {
+    font-family: Arial;
+    font-size: 120%;
+}
+h1 {
+    text-align: center;
+    color: white;
+    background-color: purple;
+}
+h2 {
+    color: black;
+    text-align: left;
+}
+footer{
+    background-color: #315;
+    color: #fff;
+}
+footer h2 {
+    color: #fff;
+}
+footer a{
+    color: #fff;
+}
