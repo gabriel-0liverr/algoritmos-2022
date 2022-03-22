@@ -89,7 +89,7 @@ class Arvore{
             pilha.push(p);
             while(!pilha.empty()){
                 p = pilha.top();
-                cout<<pilha.top()->getNum()<<endl;
+                cout<<pilha.top()->getNum()<<"><";
                 pilha.pop();
                 if(p->getDir() != 0){
                     pilha.push(p->getDir());
@@ -156,12 +156,12 @@ int main(){
     arv1->inserir(4);
     arv1->inserir(6);
 
-    cout<<"PreOrdem..."<<endl;
+    cout<<"PreOrdem Com PILHA... ";
     arv1->imprimirPreOrdem();
-    cout<<"\n\nInOrdem..."<<endl;
+    /*cout<<"\n\nInOrdem..."<<endl;
     arv1->imprimirInOrdem();
     cout<<"\n\nPosOrdem..."<<endl;
-    arv1->imprimirPosOrdem();
+    arv1->imprimirPosOrdem();*/
 
     return 0;
 };

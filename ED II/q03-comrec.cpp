@@ -101,6 +101,7 @@ int main(){
     arv1->inserir(4);
     arv1->inserir(6);
 
+    cout<<"IN Ordem Com RECURSAO... ";
     arv1->imprimirInOrdem(arv1->getRaiz());
 
     return 0;
