@@ -1,0 +1,15 @@
+header,footer{
+    padding: 5px;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
+    background-color: #6d8;
+}
+nav{
+    background-color: #9f7;
+}
+aside{
+    background-color: #cfc;
+}
+footer{
+    text-align: center;
+}

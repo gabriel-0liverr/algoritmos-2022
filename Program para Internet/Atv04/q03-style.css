@@ -1,0 +1,13 @@
+nav{ padding: 15px;}
+
+div.card{
+    margin: 15px;
+}
+
+footer{
+    padding-left: 105px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    background-color: #ddd;
+    color: #555;
+}
