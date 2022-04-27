@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Comfortaa', cursive;
+}
+
+/* Navbar */
+.navbar-container{
+    display: flex;
+    background-image: linear-gradient(45deg,rgb(18, 146, 1),rgb(45, 216, 2));
+    padding: 20px 70px;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar-container img{
+    height: 50px;
+    width: auto;
+}
+.navbar-items{
+    display: flex;
+    list-style-type: none;
+}
+
+/* Showcase */
+#showcase{
+    background-image: linear-gradient(45deg,rgb(0, 130, 153),rgb(2, 216, 116));
+    display: flex;
+}
+#showcase-container{
+    width: 90%;
+    margin: 100px 140px;
+    margin-bottom: 160px;
+}
+.subcontainer{
+    margin: 40px 0px;
+}
+.subcontainer .disclaimer{
+    font-size: 10px;
+}
+
+
+/* Footer */
+footer{
+    background-color: black;
+}
+#footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+#footer .ul{
+    display: flex;
+    list-style-type: none;
+}
+#footer .ul li a{
+    font-size: 15px;
+    color: darkgray;
+}
+#footer p{
+    color: darkgrey;
+}
+
+.footer-container{
+    justify-content: center;
+    display: flex;
+    margin: 110px 110px;
+}
+.footer-container ul{
+    list-style-type: none;
+    margin: 0px 20px;
+}
+.footer-container ul p{
+    color: gainsboro;
+}
+.footer-container ul li a{
+    color: darkgray;
+    font-size: 12px;
+}
+
+/* Planos */
+
+#planos-container{
+    background-image: linear-gradient(90deg,rgb(0, 130, 153),rgb(154, 243, 255));
+    text-align: center;
+    padding: 150px 0px;
+}
+#planos-container ul{
+    display: flex;
+    list-style-type: none;
+    width: 80%;
+    height: auto;
+    margin: 0px 150px;
+}
+#planos-container ul li{
+    margin: 0px 30px;
+}
+#planos-container h1{
+    margin-bottom: 50px;
+}
+#planos{
+    display: flex;
+    background-image: linear-gradient(90deg,rgb(0, 130, 153),rgb(154, 243, 255));
+    justify-content: center;
+    padding-bottom: 200px;
+}
+h1#planos{
+    display: flex;
+    background-image: linear-gradient(90deg,rgb(0, 130, 153),rgb(154, 243, 255));
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+.subplanos{
+    text-align: start;
+    width: 10%;
+    height: auto;
+    margin: 0px 80px;
+    border: black solid 2px;
+    border-right: none;
+    border-radius: 15px;
+    padding: 20px 10px;
+}
+
+/* Universais */
+a{
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    margin: 0px 20px;
+}
+button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(0, 214, 36);
+    margin: 10px 0px;
+}
