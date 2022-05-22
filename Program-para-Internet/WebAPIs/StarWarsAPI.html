@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <title>Star Wars API</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <style>
+            div{
+                margin: 50px 0px;
+            }
+            body {
+                overflow: hidden;
+            }
+            label, input, button{
+                margin: 0px 5px;
+            }
+        </style>
+    </head>
+    
+    <body class="bg-dark">
+    <!-- Inicio do body -->
+
+        <!-- Titulo -->
+        <div class="row justify-content-center align-items-center">
+            <h1 class="text-warning">Star Wars API</h1>
+        </div>
+        
+        <!-- Escolha de Personagem -->
+        <div class="row justify-content-center align-items-center">
+                <label class="text-warning" for="quant">Escolha (entre 1 e 88):</label>
+                <input type="number" id="quant" min="1" max="88">
+                <button onclick="escolhe()">Enviar</button>
+        </div>
+
+        <!-- Resultado -->
+        <div class="row justify-content-center align-items-center">
+            <p class="1"></p>
+            <ul class="list-group">
+                <li class="list-group-item"><p class="primeiro"></p></li>
+                <li class="list-group-item"><p class="segundo"></p></li>
+                <li class="list-group-item"><p class="terceiro"></p></li>
+                <li class="list-group-item"><p class="quarto"></p></li>
+                <li class="list-group-item"><p class="quinto"></p></li>
+            </ul>
+        </div>        
+        
+        <!-- Optional JavaScript -->
+        <script type="text/javascript">      
+            
+            function escolhe() {
+                var valor = document.getElementById('quant').value.toString()
+                var url = 'https://swapi.py4e.com/api/people/' + valor + '/';
+
+                fetch(url)
+                    .then((response) => {
+                        if (!response.ok) throw new Error('Erro ao executar requisição');
+                        return response.json();
+                    })
+                    .then((data) => {
+                        
+                        document.querySelector(".primeiro").textContent = data.name
+                        document.querySelector(".segundo").textContent = "Birth Year : " + data.birth_year
+                        document.querySelector(".terceiro").textContent = "Gender : " + data.gender
+                        document.querySelector(".quarto").textContent = "Hair Color : " + data.hair_color
+                        document.querySelector(".quinto").textContent = "Mass : " + data.mass
+
+                        console.log(data);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+
+        </script>
+    </body>
+</html>

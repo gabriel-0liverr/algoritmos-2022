@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <title>Cotação API</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <style>
+            body {
+                overflow: hidden;
+            }
+            h1, p{
+                margin: 50px 0px;
+            }
+            div.col-md-auto{
+                margin-top: 30px;
+                background-color: gray;
+                border: white solid 5px;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 class="text-center">Cotação API - Dolar | Real</h1>
+        <p class="text-center">Digite o valor em Dolar:</p>
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    $
+                    <input type="number" id="real" min="0">
+                </div>
+                <div class="col-md-auto">
+                    <button onclick="converte()">Converter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-auto">
+                <h2 class="compra">Valor de Compra</h2>
+                <h2 class="venda">Valor de Venda</h2>
+            </div>
+        </div>
+
+        <script>
+            function converte() {
+                let real = document.getElementById('real').value;
+                let url = 'https://economia.awesomeapi.com.br/last/USD-BRL'
+
+                fetch(url)
+                    .then((response) => {
+                        if (!response.ok) throw new Error('Erro ao executar requisição');
+                        return response.json();
+                    })
+                    .then((data) => {
+                        let compra = data.USDBRL.bid * real;
+                        let venda = data.USDBRL.ask * real;
+                        document.querySelector(".compra").textContent = 'Compra: R$' + compra.toString();
+                        document.querySelector(".venda").textContent = 'Venda: R$' + venda.toString();
+
+                        //console.log(data.USDBRL);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            }
+        </script>
+    </body>
+</html>
