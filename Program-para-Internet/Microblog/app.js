@@ -79,6 +79,7 @@ app.get('/posts', (req, res) => {
 app.get('/posts/:id', (req, res) => {
     const id = req.params.id;
     const post = microblog.retrieve(id);
+    
     if (post) {
         res.send(post);
     } else {
@@ -89,6 +90,7 @@ app.get('/posts/:id', (req, res) => {
 app.delete('/posts/:id', (req, res) => {
     const id = req.params.id;
     const post = microblog.retrieve(id);
+
     if (post) {
         microblog.delete(post);
         res.status(204).send('Post Deletado!');
@@ -109,11 +111,13 @@ app.post('/posts', (req, res) => {
 app.put('/posts/:id', (req, res) => {
     const id = req.params.id;
     const post = microblog.retrieve(id);
+
     if(!post){
         res.status(404).send(`Post: ${id} não encontrado!`)
     } else {
         const newPost = post;
         newPost.text = req.body.text;
+        post.likes = req.body.likes == null ? (post.likes + 0) : (post.likes + Number(req.body.likes));
         microblog.update(newPost);
         res.status(200).send(`Post: ${id} modificado`);
     }
@@ -126,9 +130,8 @@ app.patch('/posts/:id', (req, res) => {
     if(!post){
         res.status(404).send(`Post: ${id} não encontrado!`)
     } else{
-        post.id = req.body.post.id;
-        post.text = req.body.post.text;
-        post.likes = req.body.post.likes;
+        post.text = req.body.text;
+        post.likes = req.body.likes == null ? (post.likes + 0) : (post.likes + Number(req.body.likes));
         microblog.update(post);
         res.status(200).send(`Post: ${id} modificado`)
     }
