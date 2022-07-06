@@ -1,0 +1,85 @@
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./project-key.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+db = admin.firestore(); //database
+now = new Date(Date.now()).toUTCString();
+var posts = db.collection("posts");
+
+// posts.add({
+//   text : "prim",
+//   likes : 0,
+//   date : now
+// })
+// .then((docRef) => {
+//   console.log("Document written with ID: ", docRef.id);
+// })
+// .catch((error) => {
+//   console.error("Error adding document: ", error);
+// });
+
+// posts.get()
+// .then((querySnapshot) => {
+//   querySnapshot.forEach((post) => {
+//     console.log({id: post.id, ...post.data()});
+//   });
+// })
+// .catch((error) => {
+//   console.error("Error getting documents: ", error);
+// });
+
+// posts.where('__name__','==','MKRAJexRgLeJzCCg4e2x').get()
+// .then((querySnapshot) => {
+//   querySnapshot.forEach((post) => {
+//     console.log({id: post.id, ...post.data()});
+//   });
+// })
+// .catch((error) => {
+//   console.error("Error getting documents: ", error);
+// });
+
+// posts.doc("MKRAJexRgLeJzCCg4e2x").delete().then(() => {
+//     console.log("Document successfully deleted!");
+// }).catch((error) => {
+//     console.error("Error removing document: ", error);
+// });
+
+//posts.doc('m0Yy4uFfi696vxgbYAvw').update({text: "modificado"});
+
+// const increment = admin.firestore.FieldValue.increment(1);
+// posts.doc('m0Yy4uFfi696vxgbYAvw').update({likes: increment})
+//     .then((docRef) => {
+//         console.log("Document modified with ID: ", docRef.id);
+//         res.status(200).send(`Post: ${id} modificado`);
+//     })
+//     .catch((error) => {
+//         console.error("Error adding document: ", error);
+//         res.status(404).send(`Post: ${id} não encontrado!`)
+//     });
+
+posts.orderBy('__name__').startAt('3').limit(3).get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((post) => {
+            console.log({id: post.id, ...post.data()});
+        });
+    });
+
+// posts.get().then((querySnapshot) => {
+//     const id = String(querySnapshot.docs.length+1);
+
+//     posts.doc(id).set({
+//       text : 'Teste com Custom ID',
+//       likes : 0,
+//       date : now
+//     })
+//     .then((docRef) => {
+//       console.log(`Document written with ID: ${docRef.id}`);
+//     })
+//     .catch((error) => {
+//       console.error("Error adding document: ", error);
+//     });
+// });
